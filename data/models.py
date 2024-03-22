@@ -1,4 +1,3 @@
-# models.py
 from django.db import models
 
 class Student(models.Model):
@@ -22,10 +21,15 @@ class Student(models.Model):
         ('none', 'None'),
     )
     
+    EVENT_TYPE_DEFAULT = 'cultural'  # Default value for event_type
+
     name = models.CharField(max_length=100)
     rollno = models.CharField(max_length=20)
     year = models.IntegerField(choices=YEAR_CHOICES)
-    event_type = models.CharField(max_length=20, choices=EVENT_TYPE_CHOICES)
+    event_type = models.CharField(max_length=20, choices=EVENT_TYPE_CHOICES, default=EVENT_TYPE_DEFAULT)
     intercollege_mcq = models.BooleanField(default=False)
     intracollege_mcq = models.BooleanField(default=False)
     position = models.CharField(max_length=10, choices=POSITION_CHOICES)
+    is_active = models.BooleanField(default=True)  # Default field
+    def __str__(self):
+        return self.name
