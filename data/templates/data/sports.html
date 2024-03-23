@@ -1,16 +1,14 @@
 <!-- home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+
+{% extends 'data/base.html' %}
+
+{% block content %}
+<div class="container">
     <h1>Student Form</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
