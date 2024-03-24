@@ -25,7 +25,7 @@ def student_cultural_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Data submitted successfully.')
-            return redirect('home')
+            return redirect('cultural')
     else:
         form = StudentFormCultural()
     return render(request, 'data/home.html', {'form': form})
